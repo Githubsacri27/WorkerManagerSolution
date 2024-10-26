@@ -12,3 +12,6 @@ Pasos:
 - Crear dos carpetas dentro de la librería de clases para organizar
 - Crear dentro de Entidades: Worker, ITWorker, Task y Team.
 - Crear dentro de metodos: TaskManager, TeamManager, y WorkerManager.
+- Crear propiedades de worker y itworker.
+- Crear metodos para el registro en WWorkeManager
+- 
