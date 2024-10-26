@@ -50,7 +50,7 @@ namespace WorkerManagementLibraryClass.Metodos
         //}
 
         // para registrar un nuevo ITWorker
-        public void RegisterITWorkerInteractively()
+        public void RegisterITWorker()
         {
             Console.WriteLine("Introduce the IT Worker information:");
 

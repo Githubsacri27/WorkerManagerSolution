@@ -43,7 +43,7 @@ namespace ConsoleProgram
                 {
                     case 1:
                         Console.WriteLine("Introduce a new IT worker");
-                        workerManager.RegisterITWorkerInteractively();
+                        workerManager.RegisterITWorker();
                         break;
                     case 2:
                         Console.WriteLine("Intoduce a new team");
