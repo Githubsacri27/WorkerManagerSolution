@@ -45,16 +45,16 @@
                         Console.WriteLine("Introduce a new Task");
                         break;
                     case 4:
-                        Console.WriteLine("List all team names");
+                        Console.WriteLine("List all team names:");
                         break;
                     case 5:
-                        Console.WriteLine("List team members by team name");
+                        Console.WriteLine("List team members by team name:");
                         break;
                     case 6:
-                        Console.WriteLine("List unassigned tasks");
+                        Console.WriteLine("List unassigned tasks:");
                         break;
                     case 7:
-                        Console.WriteLine("List task assignments by team name");
+                        Console.WriteLine("List task assignments by team name:");
                         break;
                     case 8:
                         Console.WriteLine("Assign IT worker to a team as manager");
