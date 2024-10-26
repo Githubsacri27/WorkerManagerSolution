@@ -8,6 +8,7 @@ namespace ConsoleProgram
     public class Program
     {
         static WorkerManager workerManager = new WorkerManager();
+        static TeamManager teamManager = new TeamManager(workerManager);
         static void Main(string[] args)
         {
             bool continuar = true;
@@ -46,16 +47,16 @@ namespace ConsoleProgram
                         workerManager.RegisterITWorker();
                         break;
                     case 2:
-                        Console.WriteLine("Intoduce a new team");
+                        teamManager.CreateTeam();
                         break;
                     case 3:
                         Console.WriteLine("Introduce a new Task");
                         break;
                     case 4:
-                        Console.WriteLine("List all team names:");
+                        teamManager.ListAllTeams();
                         break;
                     case 5:
-                        Console.WriteLine("List team members by team name:");
+                        teamManager.ListTeamsMembersByName();
                         break;
                     case 6:
                         Console.WriteLine("List unassigned tasks:");
@@ -64,16 +65,22 @@ namespace ConsoleProgram
                         Console.WriteLine("List task assignments by team name:");
                         break;
                     case 8:
-                        Console.WriteLine("Assign IT worker to a team as manager");
+                        Console.Write("Enter the ITWorker ID for manager: ");
+                        int workerIdManager = int.Parse(Console.ReadLine());
+                        teamManager.AssignManager(workerIdManager);
                         break;
                     case 9:
-                        Console.WriteLine("Assign IT worker to a team as technician");
+                        Console.Write("Enter the ITWorker ID for technician: ");
+                        int workerIdTechnician = int.Parse(Console.ReadLine());
+                        teamManager.AssignTechnician(workerIdTechnician);
                         break;
                     case 10:
                         Console.WriteLine("Assign task to IT worker");
                         break;
                     case 11:
-                        Console.WriteLine("Unregister IT worker");
+                        Console.Write("Enter the ITWorker ID to unregister: ");
+                        int workerIdToUnregister = int.Parse(Console.ReadLine());
+                        workerManager.UnregisterWorkerIt(workerIdToUnregister);
                         break;
                     case 12:
                         continuar = false;

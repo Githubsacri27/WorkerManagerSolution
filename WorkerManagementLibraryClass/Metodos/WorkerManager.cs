@@ -11,14 +11,6 @@ namespace WorkerManagementLibraryClass.Metodos
     {
         private List<ITWorker> workers = new List<ITWorker>();
 
-        //Registro de nuevo it worker
-
-        public void RegisterWorkerIt(int id, string name, string surname, DateTime birthDate, DateTime leaveDate, int yearsOfExperience, string techKnowledges, string level)
-        {
-            var itWorker = new ITWorker(id, name, surname, birthDate, leaveDate, yearsOfExperience, techKnowledges, level);
-            workers.Add(itWorker);
-            Console.WriteLine($"IT Worker {itWorker.Name} registered successfully.");
-        }
 
         // eliminar ITWorker
         public void UnregisterWorkerIt(int workerId)
@@ -34,20 +26,11 @@ namespace WorkerManagementLibraryClass.Metodos
                 Console.WriteLine("Worker not found.");
             }
         }
-        //// obtener todos los ITWorkers
-        //public List<ITWorker> GetITWorkers()
-        //{
-        //    return workers;
-        //}
 
-        //// listar todos los ITWorkers
-        //public void ListWorkers()
-        //{
-        //    foreach (var worker in workers)
-        //    {
-        //        Console.WriteLine($"ID: {worker.Id}, Name: {worker.Name} {worker.Surname}, Experience: {worker.YearsOfExperience} years, Tech Knowledge: {worker.TechKnowledges}, Level: {worker.Level}");
-        //    }
-        //}
+        public ITWorker GetITWorkerById(int id)
+        {
+            return workers.Find(w => w.Id == id);
+        }
 
         // para registrar un nuevo ITWorker
         public void RegisterITWorker()
@@ -70,7 +53,7 @@ namespace WorkerManagementLibraryClass.Metodos
             DateTime leaveDate;
             if (!DateTime.TryParse(Console.ReadLine(), out leaveDate))
             {
-                leaveDate = DateTime.MaxValue; // Valor por defecto si no se proporciona una fecha
+                leaveDate = DateTime.MaxValue; 
             }
 
             Console.Write(" Number of years of experience: ");
@@ -79,8 +62,20 @@ namespace WorkerManagementLibraryClass.Metodos
             Console.Write("Technical Knowledge (e.g., C#, SQL, etc.): ");
             string techKnowledges = Console.ReadLine();
 
-            Console.Write("Level (e.g., Junior, Mid, Senior): ");
-            string level = Console.ReadLine();
+            //TODO: validar Junior, Mid, or Senior
+            string level;
+            while (true)
+            {
+                Console.Write("Enter level (Junior, Mid, or Senior): ");
+                level = Console.ReadLine().Trim();
+
+                if (level == "Junior" || level == "Mid" || level == "Senior")
+                {
+                    break;
+                }
+
+                Console.WriteLine("Invalid level. Please enter 'Junior', 'Mid', or 'Senior'.");
+            }
 
             // Crear y registrar el nuevo ITWorker
             var itWorker = new ITWorker(id, name, surname, birthDate, leaveDate, yearsOfExperience, techKnowledges, level);

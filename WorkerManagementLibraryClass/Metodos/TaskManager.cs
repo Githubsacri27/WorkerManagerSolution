@@ -8,5 +8,6 @@ namespace WorkerManagementLibraryClass.Metodos
 {
     public class TaskManager
     {
+        
     }
 }
