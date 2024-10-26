@@ -6,7 +6,22 @@ using System.Threading.Tasks;
 
 namespace WorkerManagementLibraryClass.Entidades
 {
-    public class ITWorker
+    public class ITWorker : Worker
     {
+        
+
+        public int YearsOfExperience { get; set; }
+        public string TechKnowledges { get; set; }
+        public string Level { get; set; }
+
+        public ITWorker(int id, string name, string surname, DateTime birthDate, DateTime leaveDate, int yearsOfExperience, string techKnowledges, string level)
+            : base(id, name, surname, birthDate, leaveDate)
+        {
+            YearsOfExperience = yearsOfExperience;
+            TechKnowledges = techKnowledges;
+            Level = level;
+        }
+
     }
+   
 }

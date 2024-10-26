@@ -1,7 +1,13 @@
-﻿namespace ConsoleProgram
+﻿using WorkerManagementLibraryClass.Metodos;
+
+namespace ConsoleProgram
 {
+    /// <summary>
+    /// Gestión del menu
+    /// </summary>
     public class Program
     {
+        static WorkerManager workerManager = new WorkerManager();
         static void Main(string[] args)
         {
             bool continuar = true;
@@ -37,6 +43,7 @@
                 {
                     case 1:
                         Console.WriteLine("Introduce a new IT worker");
+                        workerManager.RegisterITWorkerInteractively();
                         break;
                     case 2:
                         Console.WriteLine("Intoduce a new team");
