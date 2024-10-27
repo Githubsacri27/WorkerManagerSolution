@@ -17,3 +17,5 @@ Pasos:
 - Crear metodos para TaskManager
 - Añadir validación campo Level, campo Status.
 - Añadir contador static de id en  Worker para generar el id de forma auto.
+- Validar level senior.
+- Añadir las tecnologías en lista.
