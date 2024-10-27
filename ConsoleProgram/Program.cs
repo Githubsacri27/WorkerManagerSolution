@@ -12,6 +12,10 @@ namespace ConsoleProgram
         static TaskManager taskManager = new TaskManager();
         static void Main(string[] args)
         {
+            WorkerManager workerManager = new WorkerManager();
+            Authenticator authenticator = new Authenticator(workerManager);
+            // Iniciar sesión y obtener el ID del trabajador
+            int workerId = authenticator.Login();
             bool continuar = true;
 
             //Menu

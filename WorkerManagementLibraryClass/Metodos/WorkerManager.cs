@@ -121,6 +121,12 @@ namespace WorkerManagementLibraryClass.Metodos
             }
         }
 
+        public bool IsWorkerIdValid(int workerId)
+        {
+            return workers.Any(w => w.Id == workerId);
+        }
+
+
 
 
     }
