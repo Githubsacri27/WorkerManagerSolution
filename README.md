@@ -1,5 +1,6 @@
 ## Gestión de trabajadores
 
+** LOGIN ADMIN PULSAR 0  ** 
 
 Gestión de trabajadores, modo admin (Versión 1)
 Al cargar la aplicación, se mostrará un menú con las siguientes opciones:
@@ -40,8 +41,8 @@ tecnologías que el ITWorker conoce
 - Mientras lo que sea que se introduzca no corresponde con nada de lo anterior, se volverá a mostrar la pantalla de login
 
 # Falta
-- Menu
-- Validaciones de de entrada al menu.
+
+- El resto de validaciones de entrada al menu...
 
 # Realizado:
 - Crear la estructura de proyectos y clases 
@@ -60,3 +61,5 @@ tecnologías que el ITWorker conoce
 - Validar level senior.
 - Añadir las tecnologías en lista.
 - Validar la experiencia y la edad
+- Añadir login
+- Validar Admin
