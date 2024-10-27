@@ -46,7 +46,23 @@ namespace WorkerManagementLibraryClass.Metodos
             string surname = Console.ReadLine();
 
             Console.Write("Birthdate (yyyy-MM-dd): ");
-            DateTime birthDate = DateTime.Parse(Console.ReadLine());
+            //DateTime birthDate = DateTime.Parse(Console.ReadLine());
+            //validar edad a 18 años
+            DateTime birthDate;
+            if (!DateTime.TryParse(Console.ReadLine(), out birthDate))
+            {
+                Console.WriteLine("Invalid date format. Please enter the birthdate in the format yyyy-MM-dd.");
+                return; 
+            }
+
+            int age = DateTime.Now.Year - birthDate.Year;
+            if (birthDate > DateTime.Now.AddYears(-age)) age--; // Ajuste para fecha futura en el mismo año
+
+            if (age < 18)
+            {
+                Console.WriteLine("Sorry you can't work on IT. Min age is 18 years.");
+                return; 
+            }
 
             Console.Write("Leave Date (yyyy-MM-dd, optional): ");
             DateTime leaveDate;
@@ -74,6 +90,13 @@ namespace WorkerManagementLibraryClass.Metodos
                 Console.Write("Enter level (Junior, Mid, or Senior): ");
                 level = Console.ReadLine().Trim();
 
+                // Valdiar que tenga 5 años para poder ser Senior
+                if (level == "Senior" && yearsOfExperience < 5)
+                {
+                    Console.WriteLine("To be considered 'Senior', youu need 5 years min of experience.");
+                    continue; 
+                }
+
                 if (level == "Junior" || level == "Mid" || level == "Senior")
                 {
                     break;
@@ -81,6 +104,7 @@ namespace WorkerManagementLibraryClass.Metodos
 
                 Console.WriteLine("Invalid level. Please enter 'Junior', 'Mid', or 'Senior'.");
             }
+
 
             // Crear y registrar el nuevo ITWorker
             var itWorker = new ITWorker(name, surname, birthDate, leaveDate, yearsOfExperience, techKnowledges, level);
