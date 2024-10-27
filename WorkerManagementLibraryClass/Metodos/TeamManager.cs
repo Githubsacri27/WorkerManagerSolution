@@ -30,6 +30,11 @@ namespace WorkerManagementLibraryClass.Metodos
                 Console.WriteLine("ITWorker not found.");
                 return;
             }
+            if (itWorker.Level != "Senior")
+            {
+                Console.WriteLine($"IT Worker {itWorker.Name} not have level (Senior) to be assigned as manager.");
+                return;
+            }
 
             Managers.Add(itWorker);
             Console.WriteLine($"IT Worker {itWorker.Name} assigned as manager.");

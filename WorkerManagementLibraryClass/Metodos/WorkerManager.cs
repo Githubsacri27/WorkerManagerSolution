@@ -58,10 +58,16 @@ namespace WorkerManagementLibraryClass.Metodos
             Console.Write(" Number of years of experience: ");
             int yearsOfExperience = int.Parse(Console.ReadLine());
 
-            Console.Write("Technical Knowledge (e.g., C#, SQL, etc.): ");
-            string techKnowledges = Console.ReadLine();
-
-            //TODO: validar Junior, Mid, or Senior
+            //Console.Write("Technical Knowledge (e.g., C#, SQL, etc.): ");
+            //string techKnowledges = Console.ReadLine();
+          
+            Console.WriteLine("Enter technologies known (separate by commas): ");
+            var techInput = Console.ReadLine();
+            List<string> techKnowledges = techInput.Split(',')
+                                                   .Select(t => t.Trim())
+                                                   .Where(t => !string.IsNullOrEmpty(t))
+                                                   .ToList();
+            //validar Junior, Mid, or Senior
             string level;
             while (true)
             {
