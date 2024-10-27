@@ -13,7 +13,7 @@ namespace WorkerManagementLibraryClass.Metodos
     {
         private List<ITWorker> Managers { get; set; } = new List<ITWorker>();
         private List<ITWorker> Technicians { get; set; } = new List<ITWorker>();
-        private List<Team> teams = new List<Team>();
+        public List<Team> teams = new List<Team>();
         private WorkerManager workerManager;
 
         public TeamManager(WorkerManager workerManager)
@@ -64,7 +64,7 @@ namespace WorkerManagementLibraryClass.Metodos
                 Console.WriteLine($"- {technician.Name} {technician.Surname}");
             }
         }
-        // Método para crear un nuevo equipo y añadirlo a la lista
+        // crear un nuevo equipo y añadirlo a la lista
         public void CreateTeam()
         {
             Console.WriteLine("Introduce the team name:");
@@ -103,5 +103,31 @@ namespace WorkerManagementLibraryClass.Metodos
                 Console.WriteLine("-------------------------------------------");
             }
         }
+
+        public string GetTeamNameByWorkerId(int workerId)
+        {
+            foreach (var team in teams)
+            {
+                Console.WriteLine($"[DEBUG] Checking team: {team.Name}");
+
+                bool isManager = team.Managers.Any(manager => manager.Id == workerId);
+                bool isTechnician = team.Technicians.Any(tech => tech.Id == workerId);
+
+                if (isManager)
+                {
+                    Console.WriteLine($"[DEBUG] ITWorker ID {workerId} found in Managers of team {team.Name}");
+                    return team.Name;
+                }
+                if (isTechnician)
+                {
+                    Console.WriteLine($"[DEBUG] ITWorker ID {workerId} found in Technicians of team {team.Name}");
+                    return team.Name;
+                }
+            }
+            Console.WriteLine($"[DEBUG] ITWorker ID {workerId} not found in any team.");
+            return null;
+        }
+
+
     }
 }

@@ -37,8 +37,7 @@ namespace WorkerManagementLibraryClass.Metodos
         {
             Console.WriteLine("Introduce the IT Worker information:");
 
-            Console.Write("ID: ");
-            int id = int.Parse(Console.ReadLine());
+            
 
             Console.Write("Name: ");
             string name = Console.ReadLine();
@@ -78,10 +77,20 @@ namespace WorkerManagementLibraryClass.Metodos
             }
 
             // Crear y registrar el nuevo ITWorker
-            var itWorker = new ITWorker(id, name, surname, birthDate, leaveDate, yearsOfExperience, techKnowledges, level);
+            var itWorker = new ITWorker(name, surname, birthDate, leaveDate, yearsOfExperience, techKnowledges, level);
             workers.Add(itWorker);
-            Console.WriteLine($"IT Worker {itWorker.Name} {itWorker.Surname} registered successfully.");
+            Console.WriteLine($"IT Worker {itWorker.Name} {itWorker.Surname} registered successfully with ID {itWorker.Id}.");
         }
+
+        public void ListAllITWorkers()
+        {
+            Console.WriteLine("List of ITWorkers:");
+            foreach (var worker in workers)
+            {
+                Console.WriteLine($"ID: {worker.Id}, Name: {worker.Name} {worker.Surname}, Level: {worker.Level}");
+            }
+        }
+
 
 
     }

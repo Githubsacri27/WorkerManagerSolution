@@ -12,9 +12,9 @@ namespace WorkerManagementLibraryClass.Entidades
         public string Description { get; set; }
         public string Technology { get; set; }
         public string Status { get; set; }
-        public int IdWorker { get; set; }
+        public int? IdWorker { get; set; }
 
-        public Task (int id, string description, string technology, string status, int idworker)
+        public Task (int id, string description, string technology, string status, int? idworker = null)
         {
             this.Id = id;
             this.Description = description;

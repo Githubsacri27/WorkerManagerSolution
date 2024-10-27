@@ -9,6 +9,7 @@ namespace ConsoleProgram
     {
         static WorkerManager workerManager = new WorkerManager();
         static TeamManager teamManager = new TeamManager(workerManager);
+        static TaskManager taskManager = new TaskManager();
         static void Main(string[] args)
         {
             bool continuar = true;
@@ -50,7 +51,7 @@ namespace ConsoleProgram
                         teamManager.CreateTeam();
                         break;
                     case 3:
-                        Console.WriteLine("Introduce a new Task");
+                        taskManager.RegisterTask();
                         break;
                     case 4:
                         teamManager.ListAllTeams();
@@ -59,10 +60,10 @@ namespace ConsoleProgram
                         teamManager.ListTeamsMembersByName();
                         break;
                     case 6:
-                        Console.WriteLine("List unassigned tasks:");
+                        taskManager.ListUnassignedTasks();
                         break;
                     case 7:
-                        Console.WriteLine("List task assignments by team name:");
+                        taskManager.ListTasksByTeamName(teamManager);
                         break;
                     case 8:
                         Console.Write("Enter the ITWorker ID for manager: ");
@@ -75,7 +76,7 @@ namespace ConsoleProgram
                         teamManager.AssignTechnician(workerIdTechnician);
                         break;
                     case 10:
-                        Console.WriteLine("Assign task to IT worker");
+                        taskManager.AssignTaskToITWorker(workerManager, teamManager);
                         break;
                     case 11:
                         Console.Write("Enter the ITWorker ID to unregister: ");

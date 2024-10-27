@@ -14,8 +14,8 @@ namespace WorkerManagementLibraryClass.Entidades
         public string TechKnowledges { get; set; }
         public string Level { get; set; }
 
-        public ITWorker(int id, string name, string surname, DateTime birthDate, DateTime leaveDate, int yearsOfExperience, string techKnowledges, string level)
-            : base(id, name, surname, birthDate, leaveDate)
+        public ITWorker(string name, string surname, DateTime birthDate, DateTime leaveDate, int yearsOfExperience, string techKnowledges, string level)
+            : base(name, surname, birthDate, leaveDate)
         {
             YearsOfExperience = yearsOfExperience;
             TechKnowledges = techKnowledges;
