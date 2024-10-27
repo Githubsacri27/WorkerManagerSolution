@@ -14,4 +14,6 @@ Pasos:
 - Crear dentro de metodos: TaskManager, TeamManager, y WorkerManager.
 - Crear propiedades de worker y itworker.
 - Crear metodos para el registro en WWorkeManager
-- 
+- Crear metodos para TaskManager
+- Añadir validación campo Level, campo Status.
+- Añadir contador static de id en  Worker para generar el id de forma auto.
