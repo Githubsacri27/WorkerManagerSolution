@@ -19,3 +19,4 @@ Pasos:
 - Añadir contador static de id en  Worker para generar el id de forma auto.
 - Validar level senior.
 - Añadir las tecnologías en lista.
+- Validar la experiencia y la edad
